@@ -1,7 +1,7 @@
 import styles from "./modifiedText.module.css";
 import { useEffect, useState } from "react";
 
-export const HighlightedText = ({ children }) => {
+export const HighlightedText = ({ children }: { children: any }) => {
   return <span className={styles.highlight}>{children}</span>;
 };
 
@@ -24,7 +24,7 @@ export const TextClickCopy = ({ children }: { children: any }) => {
   );
 };
 
-export const SocialLink = ({ link, children }) => {
+export const SocialLink = ({ link, children }: { link: any; children: any }) => {
   return (
     <span className=" m-3 hover:text-red font-bold text-md">
       <a href={link}>{children}</a>
