@@ -33,7 +33,7 @@
 
 .overlay {
   clip-path: circle(0px at calc(100% - 20px) 40px);
-  transition: all 400ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 .overlayActive {
