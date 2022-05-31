@@ -19,10 +19,12 @@ const About = () => {
           {/* other social media link */}
           <div className="m-10 p-5 text-grey-darker">
             <div className="text-2xl text-center">find me on</div>
-            <SocialLink link="https://github.com/christojeffrey">github</SocialLink>
-            <SocialLink link="https://www.linkedin.com/in/christojeffrey/">linkedin</SocialLink>
-            <SocialLink link="https://www.instagram.com/christojeffrey/">instagram</SocialLink>
-            <SocialLink link="https://unsplash.com/@christojeffrey">unsplash</SocialLink>
+            <div className="text-sm md:text-xl">
+              <SocialLink link="https://github.com/christojeffrey">github</SocialLink>
+              <SocialLink link="https://www.linkedin.com/in/christojeffrey/">linkedin</SocialLink>
+              <SocialLink link="https://www.instagram.com/christojeffrey/">instagram</SocialLink>
+              <SocialLink link="https://unsplash.com/@christojeffrey">unsplash</SocialLink>
+            </div>
           </div>
         </main>
         {/* <Footer /> */}

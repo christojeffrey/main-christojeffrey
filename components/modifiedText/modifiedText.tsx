@@ -26,7 +26,7 @@ export const TextClickCopy = ({ children }: { children: any }) => {
 
 export const SocialLink = ({ link, children }: { link: any; children: any }) => {
   return (
-    <span className=" m-3 hover:text-red font-thin">
+    <span className="m-1 hover:text-red font-thin">
       <a href={link}>{children}</a>
     </span>
   );
