@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
 import Header from "../components/header/header";
 // import Footer from "../components/footer/footer";
 import NavBar from "../components/navbar/navbar";
@@ -22,8 +21,7 @@ const Home: NextPage = () => {
         {/* hero */}
         {/* project goes here */}
         <div>
-          <div className="bg-grey-darkest h-[50vh] text-center flex flex-col justify-center align-center">1</div>
-          <div> 2</div>
+          <div className="bg-grey-darkest h-[50vh] text-center flex flex-col justify-center align-center text-grey-lightest">projects are being made ...</div>
         </div>
         {/* project goes here */}
         {/* <Footer /> */}

@@ -1,6 +1,6 @@
 import { useSpring, animated } from "react-spring";
 import NavBar from "../components/navbar/navbar";
-import styles from "../styles/Home.module.css";
+// import styles from "../styles/Home.module.css";
 import Header from "../components/header/header";
 import { AiFillInstagram, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { FaUnsplash } from "react-icons/fa";
@@ -9,10 +9,10 @@ const About = () => {
   const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   return (
     <animated.div style={props}>
-      <div className={`${styles.container} bg-grey-lightest`}>
+      <div className={` bg-grey-lightest`}>
         <Header />
         <NavBar />
-        <main className={`${styles.main} `}>
+        <main className={`main`}>
           <div className="md:text-3xl text-xl">about me?</div>
           <div className="md:text-xl text-sm w-3/4 md:w-1/2">
             Christopher <HighlightedText>Jeffrey</HighlightedText> is student at Insitut Teknologi Bandung, majoring at <HighlightedText>Computer Science</HighlightedText>. Currently in his 5<span className="text-sm leading-loose">th</span>{" "}

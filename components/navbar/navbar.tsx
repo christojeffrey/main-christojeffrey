@@ -72,11 +72,28 @@ const Overlay = ({ showOverlay }: { showOverlay: boolean }) => {
 
 const NavBar = () => {
   const [showOverlay, setShowOverlay] = useState(false);
+  const [overlayBellow, setOverlayBellow] = useState(false);
+  useEffect(() => {
+    // wait for 500ms, then setoverlayhidden true
+    if (showOverlay === false) {
+      setTimeout(() => {
+        setOverlayBellow(true);
+        console.log("overlayBellow", overlayBellow);
+      }, 500);
+    } else {
+      setOverlayBellow(false);
+      console.log("overlayBellow", overlayBellow);
+    }
+  }, [showOverlay]);
   return (
     <>
-      <div className={`top-0 w-full fixed z-10`}>
-        <Burger showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-        <Overlay showOverlay={showOverlay} />
+      <div className={``}>
+        <div className="top-0 right-0 fixed z-20">
+          <Burger showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+        </div>
+        <div className={`top-0 right-0 fixed ${overlayBellow ? "-z-10" : "z-10"}`}>
+          <Overlay showOverlay={showOverlay} />
+        </div>
       </div>
     </>
   );

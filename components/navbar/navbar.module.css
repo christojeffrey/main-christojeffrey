@@ -5,6 +5,7 @@
 
 .overlayActive {
   clip-path: circle(75%);
+  z-index: 10;
 }
 .navLink {
   transition: all ease 0.3s;
