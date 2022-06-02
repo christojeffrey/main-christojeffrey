@@ -1,13 +1,16 @@
 import { useSpring, animated } from "react-spring";
 import NavBar from "../components/navbar/navbar";
 import styles from "../styles/Home.module.css";
+import Header from "../components/header/header";
+import { AiFillInstagram, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import { FaUnsplash } from "react-icons/fa";
 import { HighlightedText, TextClickCopy, SocialLink } from "../components/modifiedText/modifiedText";
 const About = () => {
   const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   return (
     <animated.div style={props}>
       <div className={`${styles.container} bg-grey-lightest`}>
-        {/* <Header /> */}
+        <Header />
         <NavBar />
         <main className={`${styles.main} `}>
           <div className="md:text-3xl text-xl">about me?</div>
@@ -19,11 +22,19 @@ const About = () => {
           {/* other social media link */}
           <div className="m-10 p-5 text-grey-darker">
             <div className="text-2xl text-center">find me on</div>
-            <div className="text-sm md:text-xl">
-              <SocialLink link="https://github.com/christojeffrey">github</SocialLink>
-              <SocialLink link="https://www.linkedin.com/in/christojeffrey/">linkedin</SocialLink>
-              <SocialLink link="https://www.instagram.com/christojeffrey/">instagram</SocialLink>
-              <SocialLink link="https://unsplash.com/@christojeffrey">unsplash</SocialLink>
+            <div className="text-sm md:text-xl flex">
+              <SocialLink link="https://github.com/christojeffrey">
+                <AiFillGithub />
+              </SocialLink>
+              <SocialLink link="https://www.linkedin.com/in/christojeffrey/">
+                <AiFillLinkedin />
+              </SocialLink>
+              <SocialLink link="https://www.instagram.com/christojeffrey/">
+                <AiFillInstagram />
+              </SocialLink>
+              <SocialLink link="https://unsplash.com/@christojeffrey">
+                <FaUnsplash />
+              </SocialLink>
             </div>
           </div>
         </main>

@@ -8,7 +8,7 @@ const Burger = ({ showOverlay, setShowOverlay }: { showOverlay: Boolean; setShow
   return (
     <>
       <div
-        className="z-10 absolute m-3 right-0 py-5 pr-10"
+        className={`z-10 absolute m-3 right-0 py-5 pr-10 `}
         onClick={() => {
           setShowOverlay(!showOverlay);
         }}
@@ -51,22 +51,20 @@ const Overlay = ({ showOverlay }: { showOverlay: boolean }) => {
   return (
     <div
       className={`
-    bg-grey-darker absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center ${styles.overlay} ${showOverlay ? styles.overlayActive : ""}`}
+    bg-grey-darker w-screen h-screen flex flex-col items-center justify-center ${styles.overlay} ${showOverlay ? styles.overlayActive : ""}`}
     >
       <>
-        <div className={styles.container}>
-          <Trail open={open}>
-            <Link href="/">
-              <a className={`text-white text-5xl ${styles.navLink}`}>HOME</a>
-            </Link>
-            <Link href="/about">
-              <a className={`text-white text-5xl ${styles.navLink}`}>ABOUT</a>
-            </Link>
-            <Link href="https://blog.christojeffrey.com">
-              <a className={`text-white text-5xl ${styles.navLink}`}>BLOG</a>
-            </Link>
-          </Trail>
-        </div>
+        <Trail open={open}>
+          <Link href="/">
+            <a className={`text-white text-5xl ${styles.navLink}`}>HOME</a>
+          </Link>
+          <Link href="/about">
+            <a className={`text-white text-5xl ${styles.navLink}`}>ABOUT</a>
+          </Link>
+          <Link href="https://blog.christojeffrey.com">
+            <a className={`text-white text-5xl ${styles.navLink}`}>BLOG</a>
+          </Link>
+        </Trail>
       </>
     </div>
   );
@@ -76,8 +74,10 @@ const NavBar = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   return (
     <>
-      <Burger showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-      <Overlay showOverlay={showOverlay} />
+      <div className={`top-0 w-full fixed z-10`}>
+        <Burger showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+        <Overlay showOverlay={showOverlay} />
+      </div>
     </>
   );
 };
