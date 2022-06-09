@@ -11,6 +11,6 @@
   transition: all ease 0.3s;
 }
 .navLink:hover {
-  box-shadow: inset 200px 0 0 0 #e0e0e0;
+  box-shadow: inset 300px 0 0 0 #e0e0e0;
   color: black;
 }

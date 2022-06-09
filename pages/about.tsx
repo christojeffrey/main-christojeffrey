@@ -9,20 +9,20 @@ const About = () => {
   const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   return (
     <animated.div style={props}>
-      <div className={` bg-grey-lightest`}>
+      <div className={` bg-neutral-100 text-neutral-900 min-h-screen`}>
         <Header />
         <NavBar />
-        <main className={`main`}>
-          <div className="md:text-3xl text-xl">about me?</div>
-          <div className="md:text-xl text-sm w-3/4 md:w-1/2">
+        <main className={`pt-8 centerx `}>
+          <div className="md:text-2xl text-xl">about me</div>
+          <div className="md:text-base text-sm w-3/4 md:w-1/2">
             Christopher <HighlightedText>Jeffrey</HighlightedText> is student at Insitut Teknologi Bandung, majoring at <HighlightedText>Computer Science</HighlightedText>. Currently in his 5<span className="text-sm leading-loose">th</span>{" "}
             semester. With few weeks left before his 20, he is dying for purpose in this absurd universe. In the meantime, tech industry keeps him busy. you can reach him by email at{" "}
             <TextClickCopy>christopherjeffrey492@gmail.com</TextClickCopy>
           </div>
           {/* other social media link */}
-          <div className="m-10 p-5 text-grey-darker">
-            <div className="text-2xl text-center">find me on</div>
-            <div className="text-sm md:text-xl flex">
+          <div className="m-10 p-5 text-neutral-600">
+            <div className="text-xl text-center">find me on</div>
+            <div className="text-sm md:text-base centerxy">
               <SocialLink link="https://github.com/christojeffrey">
                 <AiFillGithub />
               </SocialLink>

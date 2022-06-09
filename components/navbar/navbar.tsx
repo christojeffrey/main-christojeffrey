@@ -5,17 +5,18 @@ import { useSpring, animated, useTrail, a } from "react-spring";
 import React from "react";
 
 const Burger = ({ showOverlay, setShowOverlay }: { showOverlay: Boolean; setShowOverlay: any }) => {
+  let burgerBasicClass = "rounded-md block absolute h-2 w-7 transform transition duration-300 ease-in-out";
   return (
     <>
       <div
-        className={`z-10 absolute m-3 right-0 py-5 pr-10 `}
+        className={`z-10 absolute m-4 right-0 py-5 pr-7 `}
         onClick={() => {
           setShowOverlay(!showOverlay);
         }}
       >
-        <div className={`rounded-md block absolute h-1.5 w-10 bg-red-darker transform transition duration-300 ease-in-out ${showOverlay ? "rotate-45" : "-translate-y-3"}`}></div>
-        <div className={`rounded-md block absolute h-1.5 w-10 bg-red-darker transform transition duration-300 ease-in-out ${showOverlay ? "opacity-0" : ""}`}></div>
-        <div className={`rounded-md block absolute h-1.5 w-10 bg-red-darker transform transition duration-300 ease-in-out ${showOverlay ? "-rotate-45" : "translate-y-3"}`}></div>
+        <div className={`${burgerBasicClass} ${showOverlay ? "rotate-45 bg-white" : "bg-primary-900 -translate-y-3"}`}></div>
+        <div className={`${burgerBasicClass} ${showOverlay ? "opacity-0 bg-white" : "bg-primary-900"}`}></div>
+        <div className={`${burgerBasicClass} ${showOverlay ? "-rotate-45 bg-white" : "bg-primary-900 translate-y-3"}`}></div>
       </div>
     </>
   );
@@ -48,21 +49,22 @@ const Overlay = ({ showOverlay }: { showOverlay: boolean }) => {
     setOpen(showOverlay);
   }, [showOverlay]);
 
+  let navbarLinkClass = `text-primary-100 text-xl md:text-5xl ${styles.navLink}`;
   return (
     <div
       className={`
-    bg-grey-darker w-screen h-screen flex flex-col items-center justify-center ${styles.overlay} ${showOverlay ? styles.overlayActive : ""}`}
+    bg-primary-800 w-screen h-screen flex flex-col items-center justify-center ${styles.overlay} ${showOverlay ? styles.overlayActive : ""}`}
     >
       <>
         <Trail open={open}>
           <Link href="/">
-            <a className={`text-white text-5xl ${styles.navLink}`}>HOME</a>
+            <a className={navbarLinkClass}>HOME</a>
           </Link>
           <Link href="/about">
-            <a className={`text-white text-5xl ${styles.navLink}`}>ABOUT</a>
+            <a className={navbarLinkClass}>ABOUT</a>
           </Link>
           <Link href="https://blog.christojeffrey.com">
-            <a className={`text-white text-5xl ${styles.navLink}`}>BLOG</a>
+            <a className={navbarLinkClass}>BLOG</a>
           </Link>
         </Trail>
       </>

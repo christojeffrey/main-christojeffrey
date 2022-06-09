@@ -1,8 +1,7 @@
-import styles from "./modifiedText.module.css";
 import { useEffect, useState } from "react";
 
 export const HighlightedText = ({ children }: { children: any }) => {
-  return <span className={styles.highlight}>{children}</span>;
+  return <span className="highlight">{children}</span>;
 };
 
 export const TextClickCopy = ({ children }: { children: any }) => {
@@ -18,7 +17,7 @@ export const TextClickCopy = ({ children }: { children: any }) => {
   };
 
   return (
-    <span onClick={onClick} className={styles.highlight}>
+    <span onClick={onClick} className="highlight hover:text-primary-700">
       {text}
     </span>
   );

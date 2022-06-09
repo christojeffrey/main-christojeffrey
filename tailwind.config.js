@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 let colors = {
   transparent: "transparent",
 
@@ -11,6 +12,26 @@ let colors = {
   "grey-lightest": "hsl(180, 25%, 98%)",
   white: "hsl(0, 0%, 100%)",
 
+  "neutral-900": "hsl(39, 18%, 13%)",
+  "neutral-800": "hsl(39, 22%, 16%)",
+  "neutral-700": "hsl(39, 21%, 24%)",
+  "neutral-600": "hsl(40, 14%, 35%)",
+  "neutral-500": "hsl(40, 12%, 58%)",
+  "neutral-400": "hsl(41, 15%, 78%)",
+  "neutral-300": "hsl(41, 15%, 78%)",
+  "neutral-200": "hsl(41, 17%, 89%)",
+  "neutral-100": "hsl(41, 19%, 93%)",
+
+  "primary-900": "hsl(35, 98%, 17%)",
+  "primary-800": "hsl(36, 100%, 30%)",
+  "primary-700": "hsl(38, 100%, 39%)",
+  "primary-600": "hsl(37, 94%, 50%)",
+  "primary-500": "hsl(40, 100%, 58%)",
+  "primary-400": "hsl(42, 100%, 61%)",
+  "primary-300": "hsl(44, 100%, 65%)",
+  "primary-200": "hsl(45, 100%, 75%)",
+  "primary-100": "hsl(45, 100%, 87%)",
+
   "red-darkest": "hsl(2, 83%, 14%)",
   "red-darker": "hsl(1, 62%, 26%)",
   "red-dark": "hsl(2, 77%, 45%)",
@@ -18,14 +39,6 @@ let colors = {
   "red-light": "hsl(2, 83%, 63%)",
   "red-lighter": "hsl(2, 87%, 82%)",
   "red-lightest": "hsl(3, 75%, 95%)",
-
-  "primary-darkest": "hsl(25, 89%, 17%)",
-  "primary-darker": "hsl(25, 75%, 28%)",
-  "primary-dark": "hsl(27, 75%, 50%)",
-  primary: "hsl(30, 91%, 61%)",
-  "primary-light": "hsl(29, 94%, 68%)",
-  "primary-lighter": "hsl(30, 92%, 85%)",
-  "primary-lightest": "hsl(30, 100%, 96%)",
 
   "yellow-darkest": "hsl(40, 60%, 17%)",
   "yellow-darker": "hsl(40, 56%, 26%)",
@@ -51,6 +64,14 @@ let colors = {
   "teal-lighter": "hsl(178, 73%, 78%)",
   "teal-lightest": "hsl(177, 100%, 95%)",
 
+  "blue-darkest": "hsl(207, 84%, 13%)",
+  "blue-darker": "hsl(206, 71%, 22%)",
+  "blue-dark": "hsl(207, 66%, 45%)",
+  blue: "hsl(207, 71%, 53%)",
+  "blue-light": "hsl(207, 76%, 67%)",
+  "blue-lighter": "hsl(207, 86%, 86%)",
+  "blue-lightest": "hsl(206, 100%, 97%)",
+
   "indigo-darkest": "hsl(230, 38%, 16%)",
   "indigo-darker": "hsl(231, 34%, 28%)",
   "indigo-dark": "hsl(233, 38%, 52%)",
@@ -58,26 +79,70 @@ let colors = {
   "indigo-light": "hsl(231, 54%, 66%)",
   "indigo-lighter": "hsl(236, 100%, 85%)",
   "indigo-lightest": "hsl(235, 100%, 95%)",
+
+  "purple-darkest": "hsl(256, 54%, 16%)",
+  "purple-darker": "hsl(256, 47%, 27%)",
+  "purple-dark": "hsl(261, 58%, 55%)",
+  purple: "hsl(264, 69%, 63%)",
+  "purple-light": "hsl(265, 72%, 69%)",
+  "purple-lighter": "hsl(265, 92%, 86%)",
+  "purple-lightest": "hsl(264, 100%, 96%)",
+
+  "pink-darkest": "hsl(337, 86%, 15%)",
+  "pink-darker": "hsl(337, 66%, 27%)",
+  "pink-dark": "hsl(340, 79%, 62%)",
+  pink: "hsl(340, 88%, 70%)",
+  "pink-light": "hsl(340, 93%, 74%)",
+  "pink-lighter": "hsl(347, 100%, 87%)",
+  "pink-lightest": "hsl(348, 100%, 96%)",
 };
+
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      // font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      // sans: ["ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue"],
+      sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+      serif: ["ui-serif", "Georgia"],
+      mono: ["ui-monospace", "SFMono-Regular"],
+      // font-serif	font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      // font-mono	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    },
     extend: {},
     colors: colors,
-    textSizes: {
-      xs: "12px", // 12px
-      sm: "14px", // 14px
-      base: "16px", // 16px
-      lg: "18px", // 18px
-      xl: "20px", // 20px
-      "2xl": "24px", // 24px
-      "3xl": "30px", // 30px
-      "4xl": "36px", // 36px
-      "5xl": "48px", // 48px
+    fontSize: {
+      "3xs": ["12px", "21px"],
+      "2xs": ["14px", "25px"],
+      xs: ["16px", "28px"],
+      sm: ["18px", "32px"],
+      base: ["20px", "35px"],
+      lg: ["24px", "40px"],
+      xl: ["30px", "53px"],
+      "2xl": ["36px", "54px"],
+      "3xl": ["48px", "72px"],
+      "4xl": ["60px", "90px"],
+      "5xl": ["72px", "108px"],
     },
-    // spacing: {
-    // ada 0, 1, 2, 3, 4, 5, 6, 8, 12, 16, 24, 32, 40, 48, 56, 64
-    // },
+    spacing: {
+      0: "0px",
+      1: "4px",
+      2: "8px",
+      3: "12px",
+      4: "16px",
+      5: "24px",
+      6: "32px",
+      7: "48px",
+      8: "64px",
+      9: "96px",
+      10: "128px",
+      11: "192px",
+      12: "256px",
+      13: "384px",
+      14: "512px",
+      15: "768px",
+      16: "1024px",
+    },
   },
   plugins: [],
 };
