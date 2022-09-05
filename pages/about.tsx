@@ -16,8 +16,7 @@ const About = () => {
           <div className="md:text-2xl text-xl">about me</div>
           <div className="md:text-base text-sm w-3/4 md:w-1/2">
             Christopher <HighlightedText>Jeffrey</HighlightedText> is student at Insitut Teknologi Bandung, majoring at <HighlightedText>Computer Science</HighlightedText>. Currently in his 5<span className="text-sm leading-loose">th</span>{" "}
-            semester. With few weeks left before his 20, he is dying for purpose in this absurd universe. In the meantime, tech industry keeps him busy. you can reach him by email at{" "}
-            <TextClickCopy>christopherjeffrey492@gmail.com</TextClickCopy>
+            semester. With few weeks left before his 20, he is dying for purpose in this absurd universe. In the meantime, tech industry keeps him busy. you can reach him by email at <TextClickCopy>contact@christojeffrey.com</TextClickCopy>
           </div>
           {/* other social media link */}
           <div className="m-10 p-5 text-neutral-600">
