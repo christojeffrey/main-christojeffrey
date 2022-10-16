@@ -63,8 +63,8 @@ const Overlay = ({ showOverlay }: { showOverlay: boolean }) => {
           <Link href="/about">
             <a className={navbarLinkClass}>ABOUT</a>
           </Link>
-          <Link href="https://blog.christojeffrey.com">
-            <a className={navbarLinkClass}>BLOG</a>
+          <Link href="https://more.christojeffrey.com">
+            <a className={navbarLinkClass}>MORE</a>
           </Link>
         </Trail>
       </>
