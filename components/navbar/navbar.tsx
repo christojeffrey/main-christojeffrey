@@ -63,6 +63,9 @@ const Overlay = ({ showOverlay }: { showOverlay: boolean }) => {
           <Link href="/about">
             <a className={navbarLinkClass}>ABOUT</a>
           </Link>
+          <Link href="https://photos.christojeffrey.com">
+            <a className={navbarLinkClass}>PHOTOS</a>
+          </Link>
           <Link href="https://more.christojeffrey.com">
             <a className={navbarLinkClass}>MORE</a>
           </Link>
@@ -100,4 +103,5 @@ const NavBar = () => {
     </>
   );
 };
+
 export default NavBar;
