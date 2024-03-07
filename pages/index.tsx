@@ -3,10 +3,12 @@ import Header from "../components/header/header";
 // import Footer from "../components/footer/footer";
 import NavBar from "../components/navbar/navbar";
 import { animated, useSpring } from "react-spring";
-const Home: NextPage = () => {
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
+const Home: NextPage = (props: any) => {
+  const portfolios = props.portfolios.portfolio;
+  console.log(portfolios);
+  const sporingProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   return (
-    <animated.div style={props}>
+    <animated.div style={sporingProps}>
       {/* canvas */}
       <div className={`min-h-screen bg-neutral-100`}>
         <Header />
@@ -22,15 +24,11 @@ const Home: NextPage = () => {
         </div>
         {/* hero */}
         {/* project goes here */}
-
         <div className=" bg-neutral-200 centerx">
           <div className="centerxy text-base md:text-xl text-neutral-900 font-semibold font-sans pt-6">Projects</div>
-          <Project title="Parade Wisuda ITB" desc="i did backend stuff! including deploying" mediaURL="paradewisudaitb.mp4" moreURL="https://wispril22.netlify.app/" />
-          <Project reverse title="IF Reviewed" desc="a 'survey' of communication style for ITB informatics students." mediaURL="ifreviewed.mp4" moreURL="https://hmif.christojeffrey.com" />
-          <Project title="SPE Esperance" desc="a 3D online exhibition" mediaURL="speesperance.mp4" moreURL="https://speesperance.com" />
-          <Project reverse title="Gitbot" desc="LINE bot that can hook to a github repository and give you update via chat" mediaURL="gitbot.mp4" moreURL="https://line.me/R/ti/p/@144ggpeg" />
-          <Project title="Markdown Viewer" desc="alternative way to see markdown documentation from github" mediaURL="markdownviewer.mp4" moreURL="https://md.christojeffrey.com" />
-          {/* project markdown viewer*/}
+          {portfolios.map((portfolio: any, i: number) => {
+            return <Project title={portfolio.title} key={i} desc={portfolio.description} moreURL={portfolio.link} mediaURL={portfolio.youtubeLink} reverse={i % 2 === 1} />;
+          })}
         </div>
         {/* project goes here */}
         <div className="centerxy text-base md:text-xl text-neutral-900 font-semibold font-sans pt-6">Experiences</div>
@@ -87,6 +85,7 @@ const Project = ({ title, desc, moreURL, mediaURL, reverse }: any) => {
   return (
     <>
       <div className={`flex flex-col ${reverse ? "md:flex-row-reverse" : "md:flex-row"} md:justify-center md:items-center w-3/4 m-7 p-5`}>
+        {/* text */}
         <div className="md:w-1/2 p-4">
           <div className={` w-full hover:text-primary-900 rounded-md hover:cursor-pointer md:py-6 px-2 ${reverse ? "md:text-right" : "md:text-left"}`} onClick={handleTitleOnClick}>
             <div className="text-neutral-900 text-md md:text-xl">{title}</div>
@@ -96,21 +95,36 @@ const Project = ({ title, desc, moreURL, mediaURL, reverse }: any) => {
             <a
               href={moreURL}
               className={`
-            hover:text-neutral-900 text-primary-700 text-sm px-2`}
+              hover:text-neutral-900 text-primary-700 text-sm px-2`}
             >
               try me!
             </a>
           </div>
         </div>
+        {/* text */}
         <div className="md:w-1/2 p-4 centerxy">
-          {/* video */}
-          <video className="max-h-14 rounded-xl" controls muted>
-            <source src={mediaURL} type="video/mp4" />
-          </video>
+          {/* youtube video */}
+          <iframe className="xl:h-[360px] xl:w-[640px]" title="Youtube player" sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation" src={`https://youtube.com/embed/${mediaURL}?autoplay=0`}></iframe>
         </div>
       </div>
     </>
   );
 };
 
+// get server side
+const BACKEND_URL = "https://cloudflare-api-admin.pages.dev";
+
+export async function getServerSideProps() {
+  // get data from server
+  // fetch data from an API
+  const res = await fetch(`${BACKEND_URL}/portfolio`);
+  const data = await res.json();
+  // pass data to the page via props
+  return {
+    props: {
+      // pass data to the
+      portfolios: data,
+    },
+  };
+}
 export default Home;
