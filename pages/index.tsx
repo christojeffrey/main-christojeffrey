@@ -4,8 +4,7 @@ import Header from "../components/header/header";
 import NavBar from "../components/navbar/navbar";
 import { animated, useSpring } from "react-spring";
 const Home: NextPage = (props: any) => {
-  const portfolios = props.portfolios.portfolio;
-  console.log(portfolios);
+  const projects = props.projects.projects;
   const sporingProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   return (
     <animated.div style={sporingProps}>
@@ -26,7 +25,7 @@ const Home: NextPage = (props: any) => {
         {/* project goes here */}
         <div className=" bg-neutral-200 centerx">
           <div className="centerxy text-base md:text-xl text-neutral-900 font-semibold font-sans pt-6">Projects</div>
-          {portfolios.map((portfolio: any, i: number) => {
+          {projects.map((portfolio: any, i: number) => {
             return <Project title={portfolio.title} key={i} desc={portfolio.description} moreURL={portfolio.link} mediaURL={portfolio.youtubeLink} reverse={i % 2 === 1} />;
           })}
         </div>
@@ -104,7 +103,12 @@ const Project = ({ title, desc, moreURL, mediaURL, reverse }: any) => {
         {/* text */}
         <div className="md:w-1/2 p-4 centerxy">
           {/* youtube video */}
-          <iframe className="xl:h-[360px] xl:w-[640px]" title="Youtube player" sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation" src={`https://youtube.com/embed/${mediaURL}?autoplay=0`}></iframe>
+          <iframe
+            className="xl:h-[360px] xl:w-[640px]"
+            title="Youtube player"
+            sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
+            src={`https://youtube.com/embed/${mediaURL}?autoplay=0&controls=0&modestbranding=1&autohide=1&mute=1`}
+          ></iframe>
         </div>
       </div>
     </>
@@ -123,7 +127,7 @@ export async function getServerSideProps() {
   return {
     props: {
       // pass data to the
-      portfolios: data,
+      projects: data,
     },
   };
 }
