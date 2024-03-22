@@ -112,12 +112,12 @@ const Project = ({ title, desc, moreURL, mediaURL, reverse }: any) => {
 };
 
 // get server side
-const BACKEND_URL = "https://cloudflare-api-admin.pages.dev";
+const BACKEND_URL = "https://admin-api.christojeffrey.com";
 
 export async function getServerSideProps() {
   // get data from server
   // fetch data from an API
-  const res = await fetch(`${BACKEND_URL}/portfolio`);
+  const res = await fetch(`${BACKEND_URL}/projects`);
   const data = await res.json();
   // pass data to the page via props
   return {
