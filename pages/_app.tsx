@@ -3,23 +3,10 @@ import type { AppProps } from "next/app";
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const googleAnalyticsID = "G-CVE68XRBLW";
   const microsoftClarityID = "lxzd3pv1ke";
   const GTM_ID = "GTM-5QDW35T7";
   return (
     <>
-      {/* google analytics */}
-      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsID}`} />
-
-      <Script id="google-analytics">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${googleAnalyticsID}');
-        `}
-      </Script>
-
       {/* microsoft clarity */}
       <Script type="text/javascript" id="microsoft-clarity">
         {`
