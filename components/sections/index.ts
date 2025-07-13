@@ -1,0 +1,8 @@
+export { Header } from './Header'
+export { Education } from './Education'
+export { WorkExperience } from './WorkExperience'
+export { Projects } from './Projects'
+export { Skills } from './Skills'
+export { Competitions } from './Competitions'
+export { Blog } from './Blog'
+export { SocialLinks } from './SocialLinks' 
